@@ -33,7 +33,6 @@ class PostController extends Controller
         $post = Post::create([
             'title' => $fields['title'],
             'content' => $fields['content'],
-            'author' => auth()->user()->id
         ]);
 
         return response($post, 201);

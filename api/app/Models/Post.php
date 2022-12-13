@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\UserHasResource;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, UserHasResource;
 
     /**
      * The attributes that are mass assignable
@@ -17,6 +18,5 @@ class Post extends Model
     protected $fillable = [
         'title',
         'content',
-        'author'
     ];
 }
