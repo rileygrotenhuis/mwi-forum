@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return 'index';
+        return response(Post::all());
     }
 
     /**
@@ -22,9 +23,20 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $user, Request $request)
     {
-        return 'create';
+        $fields = $request->validate([
+            'title' => 'required|string',
+            'content' => 'required|string'
+        ]);
+
+        $post = Post::create([
+            'title' => $fields['title'],
+            'content' => $fields['content'],
+            'author' => auth()->user()->id
+        ]);
+
+        return response($post, 201);
     }
 
     /**
@@ -33,7 +45,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Request $request, Post $post)
     {
         return 'show';
     }
