@@ -1,7 +1,7 @@
 export default function Head() {
     return (
         <>
-            <title>Demo Forum</title>
+            <title>MWI Serve</title>
             <meta
                 content="width=device-width, initial-scale=1"
                 name="viewport"
