@@ -1,18 +1,24 @@
 {
-  "name": "client",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "eslint": "8.29.0",
-    "eslint-config-next": "13.0.6",
-    "next": "13.0.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  }
+    "name": "client",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint:prettier": "prettier --check .",
+        "lint": "npm run lint:prettier",
+        "lintfix": "prettier --write --list-different ."
+    },
+    "dependencies": {
+        "eslint": "8.29.0",
+        "eslint-config-next": "13.0.6",
+        "next": "13.0.6",
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+    },
+    "devDependencies": {
+        "eslint-config-prettier": "^8.5.0",
+        "prettier": "^2.8.1"
+    }
 }
