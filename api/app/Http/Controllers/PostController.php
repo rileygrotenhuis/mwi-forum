@@ -58,7 +58,18 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        return 'update';
+        $fields = $request->validate([
+            'title' => 'required|string',
+            'content' => 'required|string'
+        ]);
+
+        $this->authorize('update', $post);
+
+        $post->fill($fields);
+
+        $post->save();
+
+        return response($post);
     }
 
     /**
@@ -69,6 +80,10 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        return 'destroy';
+        $this->authorize('delete', $post);
+
+        $post->delete();
+
+        return response(204);
     }
 }

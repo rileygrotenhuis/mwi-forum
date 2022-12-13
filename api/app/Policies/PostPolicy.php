@@ -13,11 +13,21 @@ class PostPolicy
     /**
      * Determine if the given post can be updated by the user
      * 
-     * @param \App\User $user
      * @param \App\Post $post
      * @return bool
      */
     public function update(User $user, Post $post)
+    {
+        return $user->id === $post->author;
+    }
+
+    /**
+     * Determine if the given post can be deleted by the user
+     * 
+     * @param \App\Post $post
+     * @return bool
+     */
+    public function delete(User $user, Post $post)
     {
         return $user->id === $post->author;
     }
