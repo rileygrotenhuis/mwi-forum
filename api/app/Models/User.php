@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Returns all of a users posts
+     * 
+     * @return \App\Models\Post
+     */
+    public function posts()
+    {
+        return Post::where('author', $this->id)->get();
+    }
 }
