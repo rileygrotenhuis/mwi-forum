@@ -83,7 +83,7 @@ export default function Register() {
                                         type="password"
                                         name="password_confirmation"
                                         placeholder="password confirmation"
-                                        label="Confirm Passowrd"
+                                        label="Confirm Password"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.password_confirmation}
