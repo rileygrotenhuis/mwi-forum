@@ -1,22 +1,21 @@
-"use client";
+'use client';
 
 import { Button, Grid, TextField, Typography } from '@mui/material';
 import { Formik } from 'formik';
+import Cookies from 'js-cookie';
 
 export default function Register() {
     return (
-        <Grid 
-            container 
+        <Grid
+            container
             gap={3}
             style={{
                 width: '60%',
-                margin: 'auto'
+                margin: 'auto',
             }}
         >
             <Grid item xs={12}>
-                <Typography variant="h3">
-                    Registration
-                </Typography>
+                <Typography variant="h3">Registration</Typography>
             </Grid>
             <Grid item xs={12}>
                 <Formik
@@ -24,10 +23,22 @@ export default function Register() {
                         name: '',
                         email: '',
                         password: '',
-                        password_confirmation: ''
+                        password_confirmation: '',
                     }}
-                    onSubmit={(values, { setSubmitting }) => {
-                        alert(JSON.stringify(values));
+                    onSubmit={async (values, { setSubmitting }) => {
+                        await fetch('http://localhost:8000/api/register', {
+                            method: 'POST',
+                            body: JSON.stringify(values),
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                            },
+                        })
+                            .then((res) => res.json())
+                            .then((json) => {
+                                Cookies.set('token', json.token);
+                            });
+
                         setSubmitting(false);
                     }}
                 >
@@ -38,7 +49,7 @@ export default function Register() {
                         handleChange,
                         handleBlur,
                         handleSubmit,
-                        isSubmitting
+                        isSubmitting,
                     }) => (
                         <form onSubmit={handleSubmit}>
                             <Grid container gap={3}>
@@ -64,7 +75,7 @@ export default function Register() {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.email}
-                                    /> 
+                                    />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
@@ -88,10 +99,14 @@ export default function Register() {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.password_confirmation}
-                                    /> 
+                                    />
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Button variant="contained" type="submit" disabled={isSubmitting}>
+                                    <Button
+                                        variant="contained"
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                    >
                                         Register
                                     </Button>
                                 </Grid>
