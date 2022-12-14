@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CommentResource;
 use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -12,9 +14,18 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, Post $post)
     {
-        //
+        $fields = $request->validate([
+            'content' => 'required|string'
+        ]);
+
+        $comment = Comment::create([
+            'content' => $fields['content'],
+            'post' => $post->id
+        ]);
+
+        return response(new CommentResource($comment), 201);
     }
 
     /**
@@ -26,7 +37,17 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $fields = $request->validate([
+            'content' => 'required|string'
+        ]);
+
+        $this->authorize('update', $comment);
+
+        $comment->fill($fields);
+
+        $comment->save();
+
+        return response(new CommentResource($comment));
     }
 
     /**
@@ -37,6 +58,10 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $this->authorize('delete', $comment);
+
+        $comment->delete();
+
+        return response(204);
     }
 }
