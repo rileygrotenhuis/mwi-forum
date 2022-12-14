@@ -26,8 +26,9 @@ export default function Register() {
                         password: '',
                         password_confirmation: ''
                     }}
-                    onSubmit={(values) => {
+                    onSubmit={(values, { setSubmitting }) => {
                         alert(JSON.stringify(values));
+                        setSubmitting(false);
                     }}
                 >
                     {({
