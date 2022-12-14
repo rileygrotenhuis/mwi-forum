@@ -28,4 +28,14 @@ class Comment extends Model
     {
         return User::where('id', $this->author)->first();
     }
+
+    /**
+     * Returns reply resources of the object
+     * 
+     * @return \App\Models\Reply
+     */
+    public function getRepliesAttribute()
+    {
+        return Reply::where('comment', $this->id)->get();
+    }
 }

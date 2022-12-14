@@ -29,4 +29,14 @@ class Post extends Model
     {
         return User::where('id', $this->author)->first();
     }
+
+    /**
+     * Returns comment resources of the object
+     * 
+     * @return \App\Models\Comment
+     */
+    public function getCommentsAttribute()
+    {
+        return Comment::where('post', $this->id)->get();
+    }
 }

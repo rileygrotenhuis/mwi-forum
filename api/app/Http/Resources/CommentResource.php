@@ -19,6 +19,7 @@ class CommentResource extends JsonResource
             'content' => $this->content,
             'author' => new UserResource($this->user),
             'post' => $this->post,
+            'replies' => ReplyResource::collection($this->replies),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at
         ];
