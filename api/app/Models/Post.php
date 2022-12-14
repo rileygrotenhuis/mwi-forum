@@ -19,4 +19,14 @@ class Post extends Model
         'title',
         'content',
     ];
+
+    /**
+     * Returns user resource of the object
+     * 
+     * @return \App\Models\User
+     */
+    public function getUserAttribute()
+    {
+        return User::where('id', $this->author)->first();
+    }
 }

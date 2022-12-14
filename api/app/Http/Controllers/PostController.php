@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return response(Post::all());
+        return response(PostResource::collection(Post::all()));
     }
 
     /**
@@ -35,7 +36,7 @@ class PostController extends Controller
             'content' => $fields['content'],
         ]);
 
-        return response($post, 201);
+        return response(new PostResource($post), 201);
     }
 
     /**
@@ -46,7 +47,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return response($post);
+        return response(new PostResource($post));
     }
 
     /**
@@ -69,7 +70,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return response($post);
+        return response(new PostResource($post));
     }
 
     /**

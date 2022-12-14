@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PostResource;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -16,8 +18,8 @@ class UserController extends Controller
     public function show(User $user)
     {
         $response = [
-            'user' => $user,
-            'posts' => $user->posts()
+            'user' => new UserResource($user),
+            'posts' => PostResource::collection($user->posts())
         ];
 
         return response($response);
