@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,5 +35,17 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/{post}', [PostController::class, 'show']);
         Route::put('/{post}', [PostController::class, 'update']);
         Route::delete('/{post}', [PostController::class, 'destroy']);
+    });
+
+    Route::group(['prefix' => 'comments'], function () {
+        Route::post('/{post}', [CommentController::class, 'create']);
+        Route::put('/{comment}', [CommentController::class, 'update']);
+        Route::delete('/{comment}', [CommentController::class, 'delete']);
+    });
+
+    Route::group(['prefix' => 'replies'], function () {
+        Route::post('/{comment}', [ReplyController::class, 'create']);
+        Route::put('/{reply}', [ReplyController::class, 'update']);
+        Route::delete('/{reply}', [ReplyController::class, 'delete']);
     });
 });
