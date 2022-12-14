@@ -17,6 +17,7 @@ class Reply extends Model
      */
     protected $fillable = [
         'content',
+        'comment',
     ];
 
     /**
