@@ -1,4 +1,6 @@
-# MWI Serve Forum
+# MWI Serve
+
+This is an example forum that can be used to demonstrate my skillsets and expertise to future clients at MWI.
 
 ## Setup
 
@@ -13,9 +15,6 @@ Switch to the repo's folder
 ```bash
 cd mwi-serve-forum
 ```
-
-<br>
-<br>
 
 ### Laravel API
 
@@ -52,9 +51,6 @@ php artisan db:seed
 ```
 
 You can now access the API server at http://localhost:8000/api
-
-<br>
-<br>
 
 ### Next.js Client
 
