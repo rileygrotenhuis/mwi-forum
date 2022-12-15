@@ -1,5 +1,5 @@
 {
-    "name": "mwi-serve-forum-client",
+    "name": "client",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -11,14 +11,10 @@
         "lintfix": "prettier --write --list-different ."
     },
     "dependencies": {
-        "@emotion/react": "^11.10.5",
-        "@emotion/styled": "^11.10.5",
-        "@mui/material": "^5.11.0",
+        "@next/font": "13.0.7",
         "eslint": "8.29.0",
-        "eslint-config-next": "13.0.6",
-        "formik": "^2.2.9",
-        "js-cookie": "^3.0.1",
-        "next": "13.0.6",
+        "eslint-config-next": "13.0.7",
+        "next": "13.0.7",
         "react": "18.2.0",
         "react-dom": "18.2.0"
     },
