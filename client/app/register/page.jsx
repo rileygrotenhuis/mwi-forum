@@ -2,6 +2,7 @@
 
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import { Formik } from 'formik';
+import registrationValidators from "../../validators/registrationValidators";
 
 export default function Register() {
     return (
@@ -17,6 +18,7 @@ export default function Register() {
                         password: '',
                         password_confirmation: ''
                     }}
+                    validationSchema={registrationValidators}
                     onSubmit={(values, { setSubmitting }) => {
                         alert(JSON.stringify(values));
 
@@ -30,7 +32,8 @@ export default function Register() {
                         handleChange,
                         handleBlur,
                         handleSubmit,
-                        isSubmitting
+                        isSubmitting,
+                        isValid
                     }) => (
                         <form onSubmit={handleSubmit}>
                             <Grid container spacing={3}>
@@ -79,7 +82,11 @@ export default function Register() {
                                     /> 
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Button variant="contained" type="submit">
+                                    <Button 
+                                        variant="contained" 
+                                        type="submit"
+                                        disabled={isSubmitting || !isValid}
+                                    >
                                         Register
                                     </Button>
                                 </Grid>
