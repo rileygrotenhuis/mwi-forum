@@ -3,6 +3,8 @@
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import { Formik } from 'formik';
 import registrationValidators from "../../validators/registrationValidators";
+const axios = require('axios');
+import Cookies from 'js-cookie';
 
 export default function Register() {
     return (
@@ -20,9 +22,14 @@ export default function Register() {
                     }}
                     validationSchema={registrationValidators}
                     onSubmit={(values, { setSubmitting }) => {
-                        alert(JSON.stringify(values));
-
-                        setSubmitting(false);
+                        axios.post('http://localhost:8000/api/register', values)
+                            .then((response) => {
+                                Cookies.set('token', response.data.token);
+                                setSubmitting(false);
+                            }).catch((error) => {
+                                console.log(error);
+                                setSubmitting(false);
+                            });
                     }}
                 >
                     {({
