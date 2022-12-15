@@ -26,6 +26,7 @@ export default function Register() {
                             .then((response) => {
                                 Cookies.set('token', response.data.token);
                                 setSubmitting(false);
+                                window.location.replace('/');
                             }).catch((error) => {
                                 console.log(error);
                                 setSubmitting(false);

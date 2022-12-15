@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import loginValidators from "../../validators/loginValidators";
 const axios = require('axios');
 import Cookies from 'js-cookie';
+import { redirect } from 'next/navigation';
 
 export default function Login() {
     return (
@@ -24,6 +25,7 @@ export default function Login() {
                             .then((response) => {
                                 Cookies.set('token', response.data.token);
                                 setSubmitting(false);
+                                window.location.replace('/');
                             }).catch((error) => {
                                 console.log(error);
                                 setSubmitting(false);
