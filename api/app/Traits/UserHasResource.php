@@ -11,8 +11,10 @@ trait UserHasResource
     {
         parent::boot();
         static::creating(function ($model) {
-            $userId = auth()->user()->id;
-            $model->author = $userId;
+            if (auth()->user()) {
+                $userId = auth()->user()->id;
+                $model->author = $userId;
+            }
         });
     }
 }
