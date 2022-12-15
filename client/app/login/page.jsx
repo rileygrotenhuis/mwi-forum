@@ -6,14 +6,11 @@ import { Formik } from 'formik';
 import loginValidators from "../../validators/loginValidators";
 const axios = require('axios');
 import Cookies from 'js-cookie';
+import { checkAuthenticated } from '../../helpers/authenticationHelper';
 
 export default function Login() {
     useEffect(() => {
-        const token = Cookies.get('token');
-
-        if (token) {
-            window.location.replace('/');
-        }
+        checkAuthenticated();
     });
 
     return (

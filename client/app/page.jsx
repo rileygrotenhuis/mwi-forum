@@ -2,15 +2,11 @@
 
 import React, { useEffect } from 'react';
 import { Grid, Typography } from "@mui/material";
-import Cookies from 'js-cookie';
+import { checkUnauthenticated } from '../helpers/authenticationHelper';
 
 export default function Home() {
     useEffect(() => {
-        const token = Cookies.get('token');
-
-        if (!token) {
-            window.location.replace('/login');
-        }
+        checkUnauthenticated();
     });
     
     return (
