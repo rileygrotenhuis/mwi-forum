@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useEffect } from 'react';
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import { Formik } from 'formik';
 import registrationValidators from "../../validators/registrationValidators";
@@ -7,6 +8,14 @@ const axios = require('axios');
 import Cookies from 'js-cookie';
 
 export default function Register() {
+    useEffect(() => {
+        const token = Cookies.get('token');
+
+        if (token) {
+            window.location.replace('/');
+        }
+    });
+
     return (
         <Grid container spacing={3}>
             <Grid item xs={12}>

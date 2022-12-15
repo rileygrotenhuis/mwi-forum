@@ -1,13 +1,21 @@
 "use client";
 
+import React, { useEffect } from 'react';
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import { Formik } from 'formik';
 import loginValidators from "../../validators/loginValidators";
 const axios = require('axios');
 import Cookies from 'js-cookie';
-import { redirect } from 'next/navigation';
 
 export default function Login() {
+    useEffect(() => {
+        const token = Cookies.get('token');
+
+        if (token) {
+            window.location.replace('/');
+        }
+    });
+
     return (
         <Grid container spacing={3}>
             <Grid item xs={12}>
