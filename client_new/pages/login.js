@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import { Formik } from 'formik';
-// import loginValidators from "../../validators/loginValidators";
+import loginValidators from "../validators/loginValidators";
 const axios = require('axios');
 import Cookies from 'js-cookie';
 import { checkAuthenticated } from '../helpers/authenticationHelper';
@@ -27,7 +27,7 @@ export default function Login() {
                         email: '',
                         password: '',
                     }}
-                    // validationSchema={loginValidators}
+                    validationSchema={loginValidators}
                     onSubmit={(values, { setSubmitting }) => {
                         axios.post('http://localhost:8000/api/login', values)
                             .then((response) => {

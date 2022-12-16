@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import { Formik } from 'formik';
-// import registrationValidators from "../../validators/registrationValidators";
+import registrationValidators from "../validators/registrationValidators";
 const axios = require('axios');
 import Cookies from 'js-cookie';
 import { checkAuthenticated } from '../helpers/authenticationHelper';
@@ -29,7 +29,7 @@ export default function Register() {
                         password: '',
                         password_confirmation: ''
                     }}
-                    // validationSchema={registrationValidators}
+                    validationSchema={registrationValidators}
                     onSubmit={(values, { setSubmitting }) => {
                         axios.post('http://localhost:8000/api/register', values)
                             .then((response) => {
