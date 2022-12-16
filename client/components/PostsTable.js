@@ -1,4 +1,16 @@
-import { Grid, Typography, TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, Badge, Box } from '@mui/material';
+import {
+    Grid,
+    Typography,
+    TableContainer,
+    Paper,
+    Table,
+    TableHead,
+    TableRow,
+    TableCell,
+    TableBody,
+    Badge,
+    Box,
+} from '@mui/material';
 import moment from 'moment';
 
 export default function PostsTable({ data }) {
@@ -8,16 +20,24 @@ export default function PostsTable({ data }) {
                 <TableHead>
                     <TableRow>
                         <TableCell>
-                            <Typography variant="postTableHeader">Title</Typography>
+                            <Typography variant="postTableHeader">
+                                Title
+                            </Typography>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography variant="postTableSubheader">Topic</Typography>
+                            <Typography variant="postTableSubheader">
+                                Topic
+                            </Typography>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography variant="postTableSubheader">Replies</Typography>
+                            <Typography variant="postTableSubheader">
+                                Replies
+                            </Typography>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography variant="postTableSubheader">Date</Typography>
+                            <Typography variant="postTableSubheader">
+                                Date
+                            </Typography>
                         </TableCell>
                     </TableRow>
                 </TableHead>
@@ -28,28 +48,40 @@ export default function PostsTable({ data }) {
                                 <TableCell component="th" scope="row">
                                     <Grid container>
                                         <Grid item xs={12}>
-                                            <Typography variant="postTableItemTitle">{post.title}</Typography>
+                                            <Typography variant="postTableItemTitle">
+                                                {post.title}
+                                            </Typography>
                                         </Grid>
                                         <Grid item xs={12}>
-                                            <Typography variant="postTableItemAuthor">{post.author.name}</Typography>
+                                            <Typography variant="postTableItemAuthor">
+                                                {post.author.name}
+                                            </Typography>
                                         </Grid>
                                     </Grid>
                                 </TableCell>
                                 <TableCell align="right">
-                                    <Typography variant="postTableItem">{post.tag}</Typography>
+                                    <Typography variant="postTableItem">
+                                        {post.tag}
+                                    </Typography>
                                 </TableCell>
                                 <TableCell align="right">
-                                    <Typography variant="postTableItem">{post.comments_count}</Typography>
+                                    <Typography variant="postTableItem">
+                                        {post.comments_count}
+                                    </Typography>
                                 </TableCell>
                                 <TableCell align="right">
-                                    <Typography variant="postTableItem">{moment(post.created_at).format('MMMM Do, YYYY')}</Typography>
+                                    <Typography variant="postTableItem">
+                                        {moment(post.created_at).format(
+                                            'MMMM Do, YYYY'
+                                        )}
+                                    </Typography>
                                 </TableCell>
                             </TableRow>
-                        )
+                        );
                     })}
                     {/* EXAMPLE  */}
                 </TableBody>
             </Table>
         </TableContainer>
-    )
+    );
 }

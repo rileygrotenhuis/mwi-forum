@@ -26,170 +26,202 @@ export default function NavigationBar() {
     };
 
     return (
-        <AppBar 
-            position="static" 
-            style={{ 
-                background: 'none', 
+        <AppBar
+            position="static"
+            style={{
+                background: 'none',
                 border: 'none',
                 boxShadow: 'none',
-                marginBottom: '30px'
+                marginBottom: '30px',
             }}
         >
             <Container maxWidth="xl" disableGutters>
                 <Toolbar disableGutters>
-                <Link
-                    href="/"
-                    style={{
-                        color: 'inherit',
-                        textDecoration: 'none',
-                    }}
-                >
-                    <Grid sx={{ display: { xs: 'none', md: 'flex' } }}>
-                        <Image 
-                            alt="Logo"
-                            src={MWILogo}
-                            width={50}
-                            height={50}
-                            style={{
-                                display: 'flex',
-                                margin: 'auto',
-                            }}
-                        />
-                    </Grid>
-                </Link>
-
-                <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                    <IconButton
-                        size="large"
-                        aria-label="account of current user"
-                        aria-controls="menu-appbar"
-                        aria-haspopup="true"
-                        onClick={handleOpenNavMenu}
-                        color="inherit"
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Menu
-                        id="menu-appbar"
-                        anchorEl={anchorElNav}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'left',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'left',
-                        }}
-                        open={Boolean(anchorElNav)}
-                        onClose={handleCloseNavMenu}
-                        sx={{
-                            display: { xs: 'block', md: 'none' },
-                        }}
-                    >
-                        <Link 
-                            href="/"
-                            style={{
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Home</Typography>
-                            </MenuItem>
-                        </Link>
-                        <Link 
-                            href="/profile"
-                            style={{
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Profile</Typography>
-                            </MenuItem>
-                        </Link>
-                        <Link 
-                            href="/logout"
-                            style={{
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">Logout</Typography>
-                            </MenuItem>
-                        </Link>
-                    </Menu>
-                </Box> 
-                <Link
-                    href="/"
-                    style={{
-                        color: 'inherit',
-                        textDecoration: 'none',
-                        mr: 2,
-                        flexGrow: 1,
-                    }}
-                >
-                    <Grid sx={{ display: { xs: 'flex', md: 'none' } }}>
-                        <Image 
-                            alt="Logo"
-                            src={MWILogo}                        
-                            width={50}
-                            height={50}
-                            style={{
-                                display: 'flex',
-                                margin: 'auto',
-                            }}
-                        />
-                    </Grid>
-                </Link>
-                <Box sx={{ justifyContent: 'right', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                    <Link 
+                    <Link
                         href="/"
                         style={{
                             color: 'inherit',
                             textDecoration: 'none',
                         }}
                     >
-                        <Button
-                            onClick={handleCloseNavMenu}
-                            sx={{ mr: 5, my: 2, color: 'white', display: 'block' }}
-                        >
-                            Home
-                        </Button>
+                        <Grid sx={{ display: { xs: 'none', md: 'flex' } }}>
+                            <Image
+                                alt="Logo"
+                                src={MWILogo}
+                                width={50}
+                                height={50}
+                                style={{
+                                    display: 'flex',
+                                    margin: 'auto',
+                                }}
+                            />
+                        </Grid>
                     </Link>
-                    <Link 
-                        href="/profile"
+
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            display: { xs: 'flex', md: 'none' },
+                        }}
+                    >
+                        <IconButton
+                            size="large"
+                            aria-label="account of current user"
+                            aria-controls="menu-appbar"
+                            aria-haspopup="true"
+                            onClick={handleOpenNavMenu}
+                            color="inherit"
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Menu
+                            id="menu-appbar"
+                            anchorEl={anchorElNav}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'left',
+                            }}
+                            open={Boolean(anchorElNav)}
+                            onClose={handleCloseNavMenu}
+                            sx={{
+                                display: { xs: 'block', md: 'none' },
+                            }}
+                        >
+                            <Link
+                                href="/"
+                                style={{
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">
+                                        Home
+                                    </Typography>
+                                </MenuItem>
+                            </Link>
+                            <Link
+                                href="/profile"
+                                style={{
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">
+                                        Profile
+                                    </Typography>
+                                </MenuItem>
+                            </Link>
+                            <Link
+                                href="/logout"
+                                style={{
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">
+                                        Logout
+                                    </Typography>
+                                </MenuItem>
+                            </Link>
+                        </Menu>
+                    </Box>
+                    <Link
+                        href="/"
                         style={{
                             color: 'inherit',
                             textDecoration: 'none',
+                            mr: 2,
+                            flexGrow: 1,
                         }}
                     >
-                        <Button
-                            onClick={handleCloseNavMenu}
-                            sx={{ mr: 5, my: 2, color: 'white', display: 'block' }}
-                        >
-                            Profile
-                        </Button>
+                        <Grid sx={{ display: { xs: 'flex', md: 'none' } }}>
+                            <Image
+                                alt="Logo"
+                                src={MWILogo}
+                                width={50}
+                                height={50}
+                                style={{
+                                    display: 'flex',
+                                    margin: 'auto',
+                                }}
+                            />
+                        </Grid>
                     </Link>
-                    <Link 
-                        href="/logout"
-                        style={{
-                            color: 'inherit',
-                            textDecoration: 'none',
+                    <Box
+                        sx={{
+                            justifyContent: 'right',
+                            flexGrow: 1,
+                            display: { xs: 'none', md: 'flex' },
                         }}
                     >
-                        <Button
-                            onClick={handleCloseNavMenu}
-                            sx={{ mr: 5, my: 2, color: 'white', display: 'block' }}
+                        <Link
+                            href="/"
+                            style={{
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
                         >
-                            Logout
-                        </Button>
-                    </Link>
-                </Box>
+                            <Button
+                                onClick={handleCloseNavMenu}
+                                sx={{
+                                    mr: 5,
+                                    my: 2,
+                                    color: 'white',
+                                    display: 'block',
+                                }}
+                            >
+                                Home
+                            </Button>
+                        </Link>
+                        <Link
+                            href="/profile"
+                            style={{
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            <Button
+                                onClick={handleCloseNavMenu}
+                                sx={{
+                                    mr: 5,
+                                    my: 2,
+                                    color: 'white',
+                                    display: 'block',
+                                }}
+                            >
+                                Profile
+                            </Button>
+                        </Link>
+                        <Link
+                            href="/logout"
+                            style={{
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            <Button
+                                onClick={handleCloseNavMenu}
+                                sx={{
+                                    mr: 5,
+                                    my: 2,
+                                    color: 'white',
+                                    display: 'block',
+                                }}
+                            >
+                                Logout
+                            </Button>
+                        </Link>
+                    </Box>
                 </Toolbar>
             </Container>
         </AppBar>
     );
-};
+}

@@ -7,48 +7,48 @@ const theme = createTheme({
     typography: {
         postTableHeader: {
             fontSize: '1rem',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
         },
         postTableSubheader: {
             fontSize: '0.85rem',
-            fontWeight: 'lighter'
+            fontWeight: 'lighter',
         },
         postTableItemTitle: {
             fontSize: '1.25rem',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
         },
         postTableItemAuthor: {
             fontSize: '0.85rem',
-            fontWeight: 'lighter'
+            fontWeight: 'lighter',
         },
         postTableItem: {
             fontSize: '1rem',
-            fontWeight: 'lighter'
-        }
+            fontWeight: 'lighter',
+        },
     },
     components: {
         MuiTableContainer: {
             defaultProps: {
                 style: {
                     background: 'none',
-                }
-            }
+                },
+            },
         },
         MuiTableHead: {
             defaultProps: {
                 style: {
                     background: '#5A5A5A',
-                }
-            }
+                },
+            },
         },
         MuiTableCell: {
             defaultProps: {
                 style: {
-                    border: 'none'
-                }
-            }
+                    border: 'none',
+                },
+            },
         },
-    }
+    },
 });
 
 export default theme;
