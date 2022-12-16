@@ -6,6 +6,7 @@ use App\Http\Resources\PostResource;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -28,12 +29,14 @@ class PostController extends Controller
     {
         $fields = $request->validate([
             'title' => 'required|string',
-            'content' => 'required|string'
+            'content' => 'required|string',
+            'tag' => ['required', 'string', Rule::in(['engineering', 'design', 'project management', 'marketing', 'leadership'])],
         ]);
 
         $post = Post::create([
             'title' => $fields['title'],
             'content' => $fields['content'],
+            'tag' => $fields['tag'],
         ]);
 
         return response(new PostResource($post), 201);
@@ -61,7 +64,8 @@ class PostController extends Controller
     {
         $fields = $request->validate([
             'title' => 'required|string',
-            'content' => 'required|string'
+            'content' => 'required|string',
+            'tag' => 'required|string',
         ]);
 
         $this->authorize('update', $post);
