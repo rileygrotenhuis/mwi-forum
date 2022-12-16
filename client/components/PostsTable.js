@@ -24,7 +24,7 @@ export default function PostsTable({ data }) {
                 <TableBody>
                     {data.map((post, index) => {
                         return (
-                            <TableRow>
+                            <TableRow key={index}>
                                 <TableCell component="th" scope="row">
                                     <Grid container>
                                         <Grid item xs={12}>
