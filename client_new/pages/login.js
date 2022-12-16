@@ -5,8 +5,11 @@ import { Formik } from 'formik';
 const axios = require('axios');
 import Cookies from 'js-cookie';
 // import { checkAuthenticated } from '../../helpers/authenticationHelper';
+import { useRouter } from 'next/router';
 
 export default function Login() {
+    const router = useRouter();
+
     // useEffect(() => {
     //     checkAuthenticated();
     // });
@@ -28,7 +31,7 @@ export default function Login() {
                             .then((response) => {
                                 Cookies.set('token', response.data.token);
                                 setSubmitting(false);
-                                window.location.replace('/');
+                                router.push('/');
                             }).catch((error) => {
                                 console.log(error);
                                 setSubmitting(false);
