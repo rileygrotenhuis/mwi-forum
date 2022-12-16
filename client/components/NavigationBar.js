@@ -88,6 +88,17 @@ export default function NavigationBar() {
                         }}
                     >
                         <Link 
+                            href="/"
+                            style={{
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <Typography textAlign="center">Home</Typography>
+                            </MenuItem>
+                        </Link>
+                        <Link 
                             href="/profile"
                             style={{
                                 color: 'inherit',
@@ -134,6 +145,20 @@ export default function NavigationBar() {
                     </Grid>
                 </Link>
                 <Box sx={{ justifyContent: 'right', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Link 
+                        href="/"
+                        style={{
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
+                        <Button
+                            onClick={handleCloseNavMenu}
+                            sx={{ mr: 5, my: 2, color: 'white', display: 'block' }}
+                        >
+                            Home
+                        </Button>
+                    </Link>
                     <Link 
                         href="/profile"
                         style={{
