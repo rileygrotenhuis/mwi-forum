@@ -24,4 +24,21 @@ class UserController extends Controller
 
         return response($response);
     }
+
+    /**
+     * Display the authenticated user.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function me()
+    {
+        $user = User::where('id', auth()->user()->id)->first();;
+
+        $response = [
+            'user' => new UserResource($user),
+            'posts' => PostResource::collection($user->posts())
+        ];
+
+        return response($response);
+    }
 }
