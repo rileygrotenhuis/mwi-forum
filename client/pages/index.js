@@ -31,9 +31,9 @@ export default function Home({ posts }) {
     });
 
     return (
-        <div>
+        <>
             <NavigationBar />
             <PostsTable data={posts} />
-        </div>
+        </>
     );
 }
