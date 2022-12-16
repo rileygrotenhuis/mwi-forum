@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { checkUnauthenticated } from '../helpers/authenticationHelper';
 import { useRouter } from 'next/router';
-import NavigationBar from '../components/NavigationBar';
 import PostsTable from '../components/PostsTable';
 const axios = require('axios');
+import AuthenticatedLayout from '../layouts/authenticatedLayout';
 
 export async function getServerSideProps(context) {
     const postsResponse = await axios.get('http://127.0.0.1:8000/api/posts', {
@@ -31,9 +31,8 @@ export default function Home({ posts }) {
     });
 
     return (
-        <>
-            <NavigationBar />
+        <AuthenticatedLayout>
             <PostsTable data={posts} />
-        </>
+        </AuthenticatedLayout>
     );
 }

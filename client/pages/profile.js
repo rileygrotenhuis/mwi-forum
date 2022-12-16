@@ -1,5 +1,5 @@
 import { Grid, Typography } from '@mui/material';
-import NavigationBar from '../components/NavigationBar';
+import AuthenticatedLayout from '../layouts/authenticatedLayout';
 const axios = require('axios');
 
 export async function getServerSideProps(context) {
@@ -20,13 +20,12 @@ export async function getServerSideProps(context) {
 
 export default function Profile({ me }) {
     return (
-        <>
-            <NavigationBar />
+        <AuthenticatedLayout>
             <Grid container>
                 <Grid item xs={12}>
                     <Typography variant="h3">Profile</Typography>
                 </Grid>
             </Grid>
-        </>
+        </AuthenticatedLayout>
     )
 }
