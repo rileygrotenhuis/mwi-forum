@@ -1,5 +1,4 @@
 import { Grid, Typography, TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, Badge, Box } from '@mui/material';
-import Link from 'next/link';
 
 export default function PostsTable() {
     return (
