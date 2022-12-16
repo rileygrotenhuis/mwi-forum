@@ -17,7 +17,7 @@ export default function Register() {
     });
 
     return (
-        <Grid container spacing={3}>
+        <Grid container spacing={3} style={{ marginTop: '25px' }}>
             <Grid item xs={12}>
                 <Typography variant="h3">Registration</Typography>
             </Grid>
