@@ -30,6 +30,12 @@ Install the dependencies using composer
 composer install
 ```
 
+Generate a new Laravel application key
+
+```bash
+php artisan generate:key
+```
+
 Copy the example `.env` file and make the required configuration changes in the `.env` file
 
 ```bash
