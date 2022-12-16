@@ -4,15 +4,17 @@ import { Formik } from 'formik';
 // import loginValidators from "../../validators/loginValidators";
 const axios = require('axios');
 import Cookies from 'js-cookie';
-// import { checkAuthenticated } from '../../helpers/authenticationHelper';
+import { checkAuthenticated } from '../helpers/authenticationHelper';
 import { useRouter } from 'next/router';
 
 export default function Login() {
     const router = useRouter();
 
-    // useEffect(() => {
-    //     checkAuthenticated();
-    // });
+    useEffect(() => {
+        if(checkAuthenticated()) {
+            router.push('/');
+        }
+    });
 
     return (
         <Grid container spacing={3}>
