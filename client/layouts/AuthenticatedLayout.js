@@ -1,4 +1,4 @@
-import NavigationBar from "../components/NavigationBar";
+import NavigationBar from '../components/NavigationBar';
 
 export default function AuthenticatedLayout({ children }) {
     return (
@@ -7,4 +7,4 @@ export default function AuthenticatedLayout({ children }) {
             <main>{children}</main>
         </>
     );
-};
+}

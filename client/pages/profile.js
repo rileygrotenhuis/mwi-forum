@@ -13,8 +13,8 @@ export async function getServerSideProps(context) {
 
     return {
         props: {
-            me: data
-        }
+            me: data,
+        },
     };
 }
 
@@ -27,5 +27,5 @@ export default function Profile({ me }) {
                 </Grid>
             </Grid>
         </AuthenticatedLayout>
-    )
+    );
 }
