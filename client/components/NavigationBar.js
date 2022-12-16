@@ -12,6 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
 import Image from 'next/image';
 import Grid from '@mui/material/Grid';
+import MWILogo from '../public/MWILogo.svg';
 
 export default function NavigationBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -46,7 +47,7 @@ export default function NavigationBar() {
                     <Grid sx={{ display: { xs: 'none', md: 'flex' } }}>
                         <Image 
                             alt="Logo"
-                            // src={Logo}
+                            src={MWILogo}
                             width={50}
                             height={50}
                             style={{
@@ -122,7 +123,7 @@ export default function NavigationBar() {
                     <Grid sx={{ display: { xs: 'flex', md: 'none' } }}>
                         <Image 
                             alt="Logo"
-                            // src={Logo}                        
+                            src={MWILogo}                        
                             width={50}
                             height={50}
                             style={{
