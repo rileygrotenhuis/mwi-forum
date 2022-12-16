@@ -1,6 +1,7 @@
 import { Grid, Typography, TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, Badge, Box } from '@mui/material';
+import moment from 'moment';
 
-export default function PostsTable() {
+export default function PostsTable({ data }) {
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: '650' }} aria-label="posts-table">
@@ -21,70 +22,32 @@ export default function PostsTable() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <TableRow>
-                        <TableCell component="th" scope="row">
-                            <Grid container>
-                                <Grid item xs={12}>
-                                    <Typography variant="postTableItemTitle">Example Blog Post #1</Typography>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <Typography variant="postTableItemAuthor">Riley Grotenhuis</Typography>
-                                </Grid>
-                            </Grid>
-                        </TableCell>
-                        <TableCell align="right">
-                            <Typography variant="postTableItem">Engineering</Typography>
-                        </TableCell>
-                        <TableCell align="right">
-                            <Typography variant="postTableItem">35 Replies</Typography>
-                        </TableCell>
-                        <TableCell align="right">
-                            <Typography variant="postTableItem">December 16, 2022</Typography>
-                        </TableCell>
-                    </TableRow>
+                    {data.map((post, index) => {
+                        return (
+                            <TableRow>
+                                <TableCell component="th" scope="row">
+                                    <Grid container>
+                                        <Grid item xs={12}>
+                                            <Typography variant="postTableItemTitle">{post.title}</Typography>
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <Typography variant="postTableItemAuthor">{post.author.name}</Typography>
+                                        </Grid>
+                                    </Grid>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <Typography variant="postTableItem">{post.tag}</Typography>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <Typography variant="postTableItem">{post.comments_count}</Typography>
+                                </TableCell>
+                                <TableCell align="right">
+                                    <Typography variant="postTableItem">{moment(post.created_at).format('MMMM Do, YYYY')}</Typography>
+                                </TableCell>
+                            </TableRow>
+                        )
+                    })}
                     {/* EXAMPLE  */}
-                    <TableRow>
-                        <TableCell component="th" scope="row">
-                            <Grid container>
-                                <Grid item xs={12}>
-                                    <Typography variant="postTableItemTitle">Example Blog Post #1</Typography>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <Typography variant="postTableItemAuthor">Riley Grotenhuis</Typography>
-                                </Grid>
-                            </Grid>
-                        </TableCell>
-                        <TableCell align="right">
-                            <Typography variant="postTableItem">Engineering</Typography>
-                        </TableCell>
-                        <TableCell align="right">
-                            <Typography variant="postTableItem">35 Replies</Typography>
-                        </TableCell>
-                        <TableCell align="right">
-                            <Typography variant="postTableItem">December 16, 2022</Typography>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell component="th" scope="row">
-                            <Grid container>
-                                <Grid item xs={12}>
-                                    <Typography variant="postTableItemTitle">Example Blog Post #1</Typography>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <Typography variant="postTableItemAuthor">Riley Grotenhuis</Typography>
-                                </Grid>
-                            </Grid>
-                        </TableCell>
-                        <TableCell align="right">
-                            <Typography variant="postTableItem">Engineering</Typography>
-                        </TableCell>
-                        <TableCell align="right">
-                            <Typography variant="postTableItem">35 Replies</Typography>
-                        </TableCell>
-                        <TableCell align="right">
-                            <Typography variant="postTableItem">December 16, 2022</Typography>
-                        </TableCell>
-                    </TableRow>
                 </TableBody>
             </Table>
         </TableContainer>

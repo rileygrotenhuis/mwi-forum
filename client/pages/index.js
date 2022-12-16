@@ -3,8 +3,25 @@ import { checkUnauthenticated } from '../helpers/authenticationHelper';
 import { useRouter } from 'next/router';
 import NavigationBar from '../components/NavigationBar';
 import PostsTable from '../components/PostsTable';
+const axios = require('axios');
 
-export default function Home() {
+export async function getServerSideProps(context) {
+    const postsResponse = await axios.get('http://127.0.0.1:8000/api/posts', {
+        headers: {
+            'Authorization': `Bearer ${context.req.cookies['token']}`
+        }
+    });
+
+    const postsData = postsResponse.data;
+
+    return {
+        props: {
+            posts: postsData
+        }
+    };
+}
+
+export default function Home({ posts }) {
     const router = useRouter();
 
     useEffect(() => {
@@ -16,7 +33,7 @@ export default function Home() {
     return (
         <div>
             <NavigationBar />
-            <PostsTable />
+            <PostsTable data={posts} />
         </div>
     );
 }
