@@ -1,4 +1,5 @@
-import { Typography, TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material';
+import { Grid, Typography, TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, Badge, Box } from '@mui/material';
+import Link from 'next/link';
 
 export default function PostsTable() {
     return (
@@ -7,79 +8,82 @@ export default function PostsTable() {
                 <TableHead>
                     <TableRow>
                         <TableCell>
-                            <Typography>Title</Typography>
+                            <Typography variant="postTableHeader">Title</Typography>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography>Topic</Typography>
+                            <Typography variant="postTableSubheader">Topic</Typography>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography>Replies</Typography>
+                            <Typography variant="postTableSubheader">Replies</Typography>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography>Date</Typography>
+                            <Typography variant="postTableSubheader">Date</Typography>
                         </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     <TableRow>
                         <TableCell component="th" scope="row">
-                            <Typography>Example Blog Post #1</Typography>
-                            <Typography>Riley Grotenhuis</Typography>
+                            <Grid container>
+                                <Grid item xs={12}>
+                                    <Typography variant="postTableItemTitle">Example Blog Post #1</Typography>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Typography variant="postTableItemAuthor">Riley Grotenhuis</Typography>
+                                </Grid>
+                            </Grid>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography>Engineering</Typography>
+                            <Typography variant="postTableItem">Engineering</Typography>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography>35 Replies</Typography>
+                            <Typography variant="postTableItem">35 Replies</Typography>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography>December 16, 2022</Typography>
+                            <Typography variant="postTableItem">December 16, 2022</Typography>
                         </TableCell>
                     </TableRow>
-                    {/* EXAMPLE DATA */}
+                    {/* EXAMPLE  */}
                     <TableRow>
                         <TableCell component="th" scope="row">
-                            <Typography>Example Blog Post #1</Typography>
-                            <Typography>Riley Grotenhuis</Typography>
+                            <Grid container>
+                                <Grid item xs={12}>
+                                    <Typography variant="postTableItemTitle">Example Blog Post #1</Typography>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Typography variant="postTableItemAuthor">Riley Grotenhuis</Typography>
+                                </Grid>
+                            </Grid>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography>Engineering</Typography>
+                            <Typography variant="postTableItem">Engineering</Typography>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography>35 Replies</Typography>
+                            <Typography variant="postTableItem">35 Replies</Typography>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography>December 16, 2022</Typography>
-                        </TableCell>
-                    </TableRow>
-                    <TableRow>
-                        <TableCell component="th" scope="row">
-                            <Typography>Example Blog Post #1</Typography>
-                            <Typography>Riley Grotenhuis</Typography>
-                        </TableCell>
-                        <TableCell align="right">
-                            <Typography>Engineering</Typography>
-                        </TableCell>
-                        <TableCell align="right">
-                            <Typography>35 Replies</Typography>
-                        </TableCell>
-                        <TableCell align="right">
-                            <Typography>December 16, 2022</Typography>
+                            <Typography variant="postTableItem">December 16, 2022</Typography>
                         </TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell component="th" scope="row">
-                            <Typography>Example Blog Post #1</Typography>
-                            <Typography>Riley Grotenhuis</Typography>
+                            <Grid container>
+                                <Grid item xs={12}>
+                                    <Typography variant="postTableItemTitle">Example Blog Post #1</Typography>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Typography variant="postTableItemAuthor">Riley Grotenhuis</Typography>
+                                </Grid>
+                            </Grid>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography>Engineering</Typography>
+                            <Typography variant="postTableItem">Engineering</Typography>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography>35 Replies</Typography>
+                            <Typography variant="postTableItem">35 Replies</Typography>
                         </TableCell>
                         <TableCell align="right">
-                            <Typography>December 16, 2022</Typography>
+                            <Typography variant="postTableItem">December 16, 2022</Typography>
                         </TableCell>
                     </TableRow>
                 </TableBody>
