@@ -4,14 +4,18 @@ export function checkAuthenticated() {
     const token = Cookies.get('token');
 
     if (token) {
-        window.location.replace('/');
+        return true;
     }
+
+    return false;
 }
 
 export function checkUnauthenticated() {
     const token = Cookies.get('token');
 
     if (!token) {
-        window.location.replace('/login');
+        return true;
     }
+
+    return false;
 }
