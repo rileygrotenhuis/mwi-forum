@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { Button, Grid, TextField, Typography } from "@mui/material";
+import { Button, Grid, TextField, Typography } from '@mui/material';
 import { Formik } from 'formik';
-import registrationValidators from "../validators/registrationValidators";
+import registrationValidators from '../validators/registrationValidators';
 const axios = require('axios');
 import Cookies from 'js-cookie';
 import { checkAuthenticated } from '../helpers/authenticationHelper';
@@ -11,7 +11,7 @@ export default function Register() {
     const router = useRouter();
 
     useEffect(() => {
-        if(checkAuthenticated()) {
+        if (checkAuthenticated()) {
             router.push('/');
         }
     });
@@ -27,16 +27,18 @@ export default function Register() {
                         name: '',
                         email: '',
                         password: '',
-                        password_confirmation: ''
+                        password_confirmation: '',
                     }}
                     validationSchema={registrationValidators}
                     onSubmit={(values, { setSubmitting }) => {
-                        axios.post('http://localhost:8000/api/register', values)
+                        axios
+                            .post('http://localhost:8000/api/register', values)
                             .then((response) => {
                                 Cookies.set('token', response.data.token);
                                 setSubmitting(false);
                                 router.push('/');
-                            }).catch((error) => {
+                            })
+                            .catch((error) => {
                                 console.log(error);
                                 setSubmitting(false);
                             });
@@ -50,7 +52,7 @@ export default function Register() {
                         handleBlur,
                         handleSubmit,
                         isSubmitting,
-                        isValid
+                        isValid,
                     }) => (
                         <form onSubmit={handleSubmit}>
                             <Grid container spacing={3}>
@@ -74,7 +76,7 @@ export default function Register() {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.email}
-                                    /> 
+                                    />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
@@ -85,7 +87,7 @@ export default function Register() {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.password}
-                                    /> 
+                                    />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
@@ -96,11 +98,11 @@ export default function Register() {
                                         onChange={handleChange}
                                         onBlur={handleBlur}
                                         value={values.password_confirmation}
-                                    /> 
+                                    />
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <Button 
-                                        variant="contained" 
+                                    <Button
+                                        variant="contained"
                                         type="submit"
                                         disabled={isSubmitting || !isValid}
                                     >
@@ -114,4 +116,4 @@ export default function Register() {
             </Grid>
         </Grid>
     );
-};
+}

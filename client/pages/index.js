@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { checkUnauthenticated } from "../helpers/authenticationHelper";
+import { checkUnauthenticated } from '../helpers/authenticationHelper';
 import { useRouter } from 'next/router';
 
 export default function Home() {
@@ -16,4 +16,4 @@ export default function Home() {
             <h1>Testing</h1>
         </div>
     );
-};
+}
