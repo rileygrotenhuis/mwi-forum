@@ -6,22 +6,80 @@ export default function PostsTable() {
             <Table sx={{ minWidth: '650' }} aria-label="posts-table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Topic</TableCell>
-                        <TableCell align="right">Replies</TableCell>
+                        <TableCell>
+                            <Typography>Title</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>Topic</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>Replies</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>Date</Typography>
+                        </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     <TableRow>
                         <TableCell component="th" scope="row">
-                            <Typography variant="h6"><b>Example Post Title</b></Typography>
-                            <Typography variant="subtitle1">
-                                <b>Riley Grotenhuis </b>
-                                ||
-                                <em> December 16, 2022</em>
-                            </Typography>
+                            <Typography>Example Blog Post #1</Typography>
+                            <Typography>Riley Grotenhuis</Typography>
                         </TableCell>
                         <TableCell align="right">
-                            54 Replies
+                            <Typography>Engineering</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>35 Replies</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>December 16, 2022</Typography>
+                        </TableCell>
+                    </TableRow>
+                    {/* EXAMPLE DATA */}
+                    <TableRow>
+                        <TableCell component="th" scope="row">
+                            <Typography>Example Blog Post #1</Typography>
+                            <Typography>Riley Grotenhuis</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>Engineering</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>35 Replies</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>December 16, 2022</Typography>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell component="th" scope="row">
+                            <Typography>Example Blog Post #1</Typography>
+                            <Typography>Riley Grotenhuis</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>Engineering</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>35 Replies</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>December 16, 2022</Typography>
+                        </TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell component="th" scope="row">
+                            <Typography>Example Blog Post #1</Typography>
+                            <Typography>Riley Grotenhuis</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>Engineering</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>35 Replies</Typography>
+                        </TableCell>
+                        <TableCell align="right">
+                            <Typography>December 16, 2022</Typography>
                         </TableCell>
                     </TableRow>
                 </TableBody>
