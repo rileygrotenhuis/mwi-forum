@@ -27,6 +27,22 @@ const theme = createTheme({
         },
     },
     components: {
+        MuiButton: {
+            variants: [
+                {
+                    props: { variant: 'contained' },
+                    style: {
+                        background: 'white',
+                        color: 'black',
+                        '&:hover': {
+                            background: 'black',
+                            color: 'white',
+                            border: '1px solid white',
+                        }
+                    }
+                }
+            ]
+        },
         MuiTableContainer: {
             defaultProps: {
                 style: {
