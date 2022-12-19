@@ -1,18 +1,5 @@
-import {
-    Grid,
-    Typography,
-    TableContainer,
-    Paper,
-    Table,
-    TableHead,
-    TableRow,
-    TableCell,
-    TableBody,
-    Badge,
-    Box,
-} from '@mui/material';
+import { Grid, Typography, Paper } from '@mui/material';
 import moment from 'moment';
-import Link from 'next/link';
 
 export default function PostView({ data }) {
     return (

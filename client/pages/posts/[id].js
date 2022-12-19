@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
 import AuthenticatedLayout from '../../layouts/authenticatedLayout';
 import PostView from '../../components/PostView';
 import CreateComment from '../../components/CreateComment';
@@ -26,10 +25,6 @@ export async function getServerSideProps(context) {
 }
 
 export default function PostId({ post }) {
-    const router = useRouter();
-
-    const { id } = router.query;
-
     return (
         <AuthenticatedLayout>
             <PostView data={post} />

@@ -8,8 +8,6 @@ import {
     TableRow,
     TableCell,
     TableBody,
-    Badge,
-    Box,
 } from '@mui/material';
 import moment from 'moment';
 import Link from 'next/link';
@@ -88,7 +86,6 @@ export default function PostsTable({ data }) {
                             </TableRow>
                         );
                     })}
-                    {/* EXAMPLE  */}
                 </TableBody>
             </Table>
         </TableContainer>

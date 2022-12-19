@@ -1,16 +1,4 @@
-import {
-    Grid,
-    Typography,
-    TableContainer,
-    Paper,
-    Table,
-    TableHead,
-    TableRow,
-    TableCell,
-    TableBody,
-    Badge,
-    Box,
-} from '@mui/material';
+import { Grid, Typography, Paper } from '@mui/material';
 import moment from 'moment';
 
 export default function CommentList({ comments }) {
