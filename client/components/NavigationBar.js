@@ -140,7 +140,9 @@ export default function NavigationBar() {
                                 }}
                             >
                                 <MenuItem onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">New Post</Typography>
+                                    <Typography textAlign="center">
+                                        New Post
+                                    </Typography>
                                 </MenuItem>
                             </Link>
                         </Menu>
