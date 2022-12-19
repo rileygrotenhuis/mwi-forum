@@ -1,5 +1,6 @@
 import { Grid, Typography } from '@mui/material';
 import PostsTable from '../components/PostsTable';
+import UserInformation from '../components/UserInformation';
 import AuthenticatedLayout from '../layouts/authenticatedLayout';
 const axios = require('axios');
 
@@ -24,7 +25,7 @@ export default function Profile({ me }) {
         <AuthenticatedLayout>
             <Grid container spacing={3}>
                 <Grid item xs={12}>
-                    <Typography variant="h3">Profile</Typography>
+                    <UserInformation data={me.user} />
                 </Grid>
                 <Grid item xs={12}>
                     <PostsTable data={me.posts} />
