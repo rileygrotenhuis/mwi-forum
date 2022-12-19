@@ -6,7 +6,7 @@ export default function CommentList({ comments }) {
         <Paper elevation={1} style={{ marginTop: '25px', padding: '10px' }}>
             {comments.map((comment, index) => {
                 return (
-                    <Grid container>
+                    <Grid container key={index}>
                         <Grid item xs={12}>
                             <Typography>
                                 {comment.author.name} ||{' '}
