@@ -5,11 +5,14 @@ import AuthenticatedLayout from '../../layouts/authenticatedLayout';
 const axios = require('axios');
 
 export async function getServerSideProps(context) {
-    const response = await axios.get(`http://127.0.0.1:8000/api/users/${context.params.id}`, {
-        headers: {
-            Authorization: `Bearer ${context.req.cookies['token']}`,
-        },
-    });
+    const response = await axios.get(
+        `http://127.0.0.1:8000/api/users/${context.params.id}`,
+        {
+            headers: {
+                Authorization: `Bearer ${context.req.cookies['token']}`,
+            },
+        }
+    );
 
     const data = response.data;
 

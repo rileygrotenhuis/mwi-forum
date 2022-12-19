@@ -61,7 +61,15 @@ export default function PostsTable({ data }) {
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Typography variant="postTableItemAuthor">
-                                                {post.author.name}
+                                                <Link
+                                                    href={`/users/${post.author.id}`}
+                                                    style={{
+                                                        color: 'inherit',
+                                                        textDecoration: 'none',
+                                                    }}
+                                                >
+                                                    {post.author.name}
+                                                </Link>
                                             </Typography>
                                         </Grid>
                                     </Grid>

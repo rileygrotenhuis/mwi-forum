@@ -1,5 +1,6 @@
 import { Grid, Typography, Paper } from '@mui/material';
 import moment from 'moment';
+import Link from 'next/link';
 
 export default function PostView({ data }) {
     return (
@@ -10,8 +11,16 @@ export default function PostView({ data }) {
                 </Grid>
                 <Grid item xs={12}>
                     <Typography variant="subtitle1">
-                        {data.author.name} ||{' '}
-                        {moment(data.created_at).format('MMMM Do, YYYY')}
+                        <Link
+                            href={`/users/${data.author.id}`}
+                            style={{
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            {data.author.name}
+                        </Link>{' '}
+                        || {moment(data.created_at).format('MMMM Do, YYYY')}
                     </Typography>
                 </Grid>
                 <hr style={{ width: '100%' }} />

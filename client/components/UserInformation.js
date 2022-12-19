@@ -6,7 +6,9 @@ export default function UserInformation({ data }) {
         <Paper elevation={1} style={{ padding: '10px' }}>
             <Typography variant="h3">{data.name}</Typography>
             <Typography>{data.email}</Typography>
-            <Typography>Join on {moment(data.created_at).format('MMMM Do, YYYY')}</Typography>
+            <Typography>
+                Join on {moment(data.created_at).format('MMMM Do, YYYY')}
+            </Typography>
         </Paper>
     );
 }
