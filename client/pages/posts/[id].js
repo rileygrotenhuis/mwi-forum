@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import AuthenticatedLayout from '../../layouts/authenticatedLayout';
 import PostView from '../../components/PostView';
 import CreateComment from '../../components/CreateComment';
+import CommentList from '../../components/CommentList';
 
 export async function getServerSideProps(context) {
     const postResponse = await axios.get(
@@ -33,6 +34,7 @@ export default function PostId({ post }) {
         <AuthenticatedLayout>
             <PostView data={post} />
             <CreateComment postId={post.id} />
+            <CommentList comments={post.comments} />
         </AuthenticatedLayout>
     );
 }
