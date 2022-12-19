@@ -11,7 +11,7 @@ import {
     Badge,
     Box,
     Button,
-    TextField
+    TextField,
 } from '@mui/material';
 import moment from 'moment';
 import Link from 'next/link';
@@ -34,15 +34,22 @@ export default function CreateComment({ postId }) {
                     validationSchema={commentValidators}
                     onSubmit={(values, { setSubmitting }) => {
                         axios
-                            .post(`http://127.0.0.1:8000/api/comments/${postId}`, values, {
-                                headers: {
-                                    Authorization: `Bearer ${Cookies.get('token')}`,
-                                },
-                            })
+                            .post(
+                                `http://127.0.0.1:8000/api/comments/${postId}`,
+                                values,
+                                {
+                                    headers: {
+                                        Authorization: `Bearer ${Cookies.get(
+                                            'token'
+                                        )}`,
+                                    },
+                                }
+                            )
                             .then((response) => {
                                 setSubmitting(false);
-                                router.reload(); 
-                            }).catch((error) => {
+                                router.reload();
+                            })
+                            .catch((error) => {
                                 console.log(error);
                                 setSubmitting(false);
                             });
@@ -79,7 +86,7 @@ export default function CreateComment({ postId }) {
                                         type="submit"
                                         disabled={isSubmitting || !isValid}
                                         style={{
-                                            float: 'right'
+                                            float: 'right',
                                         }}
                                     >
                                         Comment
