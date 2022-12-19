@@ -1,4 +1,5 @@
 import { Grid, Typography } from '@mui/material';
+import PostsTable from '../components/PostsTable';
 import AuthenticatedLayout from '../layouts/authenticatedLayout';
 const axios = require('axios');
 
@@ -21,9 +22,12 @@ export async function getServerSideProps(context) {
 export default function Profile({ me }) {
     return (
         <AuthenticatedLayout>
-            <Grid container>
+            <Grid container spacing={3}>
                 <Grid item xs={12}>
                     <Typography variant="h3">Profile</Typography>
+                </Grid>
+                <Grid item xs={12}>
+                    <PostsTable data={me.posts} />
                 </Grid>
             </Grid>
         </AuthenticatedLayout>
