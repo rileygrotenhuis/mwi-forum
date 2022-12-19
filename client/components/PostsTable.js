@@ -50,7 +50,7 @@ export default function PostsTable({ data }) {
                                     <Grid container>
                                         <Grid item xs={12}>
                                             <Typography variant="postTableItemTitle">
-                                                <Link 
+                                                <Link
                                                     href={`/posts/${post.id}`}
                                                     style={{
                                                         color: 'inherit',
