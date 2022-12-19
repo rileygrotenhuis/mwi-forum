@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import AuthenticatedLayout from '../../layouts/authenticatedLayout';
 import PostView from '../../components/PostView';
+import CreateComment from '../../components/CreateComment';
 
 export async function getServerSideProps(context) {
     const postResponse = await axios.get(
@@ -31,6 +32,8 @@ export default function PostId({ post }) {
     return (
         <AuthenticatedLayout>
             <PostView data={post} />
+            <br />
+            <CreateComment />
         </AuthenticatedLayout>
     );
 }
