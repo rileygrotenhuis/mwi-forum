@@ -13,6 +13,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Grid from '@mui/material/Grid';
 import MWILogo from '../public/MWILogo.svg';
+import AddIcon from '@mui/icons-material/Add';
 
 export default function NavigationBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -131,6 +132,17 @@ export default function NavigationBar() {
                                     </Typography>
                                 </MenuItem>
                             </Link>
+                            <Link
+                                href="/posts/create"
+                                style={{
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">New Post</Typography>
+                                </MenuItem>
+                            </Link>
                         </Menu>
                     </Box>
                     <Link
@@ -217,6 +229,24 @@ export default function NavigationBar() {
                                 }}
                             >
                                 Logout
+                            </Button>
+                        </Link>
+                        <Link
+                            href="/posts/create"
+                            style={{
+                                color: 'inherit',
+                                textDecoration: 'none',
+                            }}
+                        >
+                            <Button
+                                onClick={handleCloseNavMenu}
+                                sx={{
+                                    my: 2,
+                                    color: 'white',
+                                    display: 'block',
+                                }}
+                            >
+                                <AddIcon />
                             </Button>
                         </Link>
                     </Box>
