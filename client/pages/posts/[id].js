@@ -32,7 +32,6 @@ export default function PostId({ post }) {
     return (
         <AuthenticatedLayout>
             <PostView data={post} />
-            <br />
             <CreateComment postId={post.id} />
         </AuthenticatedLayout>
     );
