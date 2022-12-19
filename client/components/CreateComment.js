@@ -18,8 +18,12 @@ import Link from 'next/link';
 import { Formik } from 'formik';
 const axios = require('axios');
 import Cookies from 'js-cookie';
+import { useRouter } from 'next/router';
+import commentValidators from '../validators/commentValidators';
 
-export default function CreateComment() {
+export default function CreateComment({ postId }) {
+    const router = useRouter();
+
     return (
         <Grid container style={{ marginTop: '25px' }}>
             <Grid item xs={12}>
@@ -27,8 +31,21 @@ export default function CreateComment() {
                     initialValues={{
                         content: '',
                     }}
+                    validationSchema={commentValidators}
                     onSubmit={(values, { setSubmitting }) => {
-                        alert(JSON.stringify(values));
+                        axios
+                            .post(`http://127.0.0.1:8000/api/comments/${postId}`, values, {
+                                headers: {
+                                    Authorization: `Bearer ${Cookies.get('token')}`,
+                                },
+                            })
+                            .then((response) => {
+                                setSubmitting(false);
+                                router.reload(); 
+                            }).catch((error) => {
+                                console.log(error);
+                                setSubmitting(false);
+                            });
                     }}
                 >
                     {({
@@ -48,7 +65,6 @@ export default function CreateComment() {
                                         fullWidth
                                         multiline
                                         rows={2}
-                                        maxRows={4}
                                         type="text"
                                         name="content"
                                         label="Comment"
