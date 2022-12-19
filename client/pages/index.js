@@ -6,18 +6,26 @@ const axios = require('axios');
 import AuthenticatedLayout from '../layouts/authenticatedLayout';
 
 export async function getServerSideProps(context) {
-    const postsResponse = await axios.get('http://127.0.0.1:8000/api/posts', {
-        headers: {
-            Authorization: `Bearer ${context.req.cookies['token']}`,
-        },
-    });
+    if (context.req.cookies['token']) {
+        const postsResponse = await axios.get('http://127.0.0.1:8000/api/posts', {
+            headers: {
+                Authorization: `Bearer ${context.req.cookies['token']}`,
+            },
+        });
 
-    const postsData = postsResponse.data;
+        const postsData = postsResponse.data;
+
+        return {
+            props: {
+                posts: postsData,
+            },
+        };
+    }
 
     return {
         props: {
-            posts: postsData,
-        },
+            posts: []
+        }
     };
 }
 
@@ -32,7 +40,7 @@ export default function Home({ posts }) {
 
     return (
         <AuthenticatedLayout>
-            <PostsTable data={posts} />
+            {posts.length > 0 ? <PostsTable data={posts} /> : <></>}
         </AuthenticatedLayout>
     );
 }

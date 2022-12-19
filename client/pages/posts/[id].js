@@ -8,21 +8,29 @@ import CreateComment from '../../components/CreateComment';
 import CommentList from '../../components/CommentList';
 
 export async function getServerSideProps(context) {
-    const postResponse = await axios.get(
-        `http://127.0.0.1:8000/api/posts/${context.params.id}`,
-        {
-            headers: {
-                Authorization: `Bearer ${context.req.cookies['token']}`,
+    if (context.req.cookies['token']) {
+        const postResponse = await axios.get(
+            `http://127.0.0.1:8000/api/posts/${context.params.id}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${context.req.cookies['token']}`,
+                },
+            }
+        );
+    
+        const postData = postResponse.data;
+    
+        return {
+            props: {
+                post: postData,
             },
-        }
-    );
-
-    const postData = postResponse.data;
+        };
+    }
 
     return {
         props: {
-            post: postData,
-        },
+            post: {}
+        }
     };
 }
 
@@ -37,9 +45,7 @@ export default function PostId({ post }) {
 
     return (
         <AuthenticatedLayout>
-            <PostView data={post} />
-            <CreateComment postId={post.id} />
-            <CommentList comments={post.comments} />
+            {Object.keys(post).length > 0 ? <><PostView data={post} /><CreateComment postId={post.id} /><CommentList comments={post.comments} /></> : <></>}
         </AuthenticatedLayout>
     );
 }
