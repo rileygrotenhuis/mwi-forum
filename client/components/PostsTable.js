@@ -12,6 +12,7 @@ import {
     Box,
 } from '@mui/material';
 import moment from 'moment';
+import Link from 'next/link';
 
 export default function PostsTable({ data }) {
     return (
@@ -49,7 +50,15 @@ export default function PostsTable({ data }) {
                                     <Grid container>
                                         <Grid item xs={12}>
                                             <Typography variant="postTableItemTitle">
-                                                {post.title}
+                                                <Link 
+                                                    href={`/posts/${post.id}`}
+                                                    style={{
+                                                        color: 'inherit',
+                                                        textDecoration: 'none',
+                                                    }}
+                                                >
+                                                    {post.title}
+                                                </Link>
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={12}>
