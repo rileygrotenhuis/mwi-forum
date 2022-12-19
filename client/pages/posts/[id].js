@@ -1,6 +1,8 @@
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import AuthenticatedLayout from '../../layouts/authenticatedLayout';
+import { checkUnauthenticated } from '../../helpers/authenticationHelper';
 import PostView from '../../components/PostView';
 import CreateComment from '../../components/CreateComment';
 import CommentList from '../../components/CommentList';
@@ -25,6 +27,14 @@ export async function getServerSideProps(context) {
 }
 
 export default function PostId({ post }) {
+    const router = useRouter();
+
+    useEffect(() => {
+        if (checkUnauthenticated()) {
+            router.push('/login');
+        }
+    });
+
     return (
         <AuthenticatedLayout>
             <PostView data={post} />
