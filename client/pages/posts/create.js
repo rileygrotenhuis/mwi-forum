@@ -19,7 +19,7 @@ export default function PostCreate() {
 
     return (
         <AuthenticatedLayout>
-            <Grid container>
+            <Grid container spacing={3}>
                 <Grid item xs={12}>
                     <Typography variant="h3">New Post</Typography>
                 </Grid>
@@ -83,6 +83,10 @@ export default function PostCreate() {
                                         value={values.tag}
                                     >
                                         <MenuItem value={"engineering"}>Engineering</MenuItem>
+                                        <MenuItem value={"design"}>Design</MenuItem>
+                                        <MenuItem value={"project management"}>Project Management</MenuItem>
+                                        <MenuItem value={"marketing"}>Marketing</MenuItem>
+                                        <MenuItem value={"leadership"}>Leadership</MenuItem>
                                     </Select>
                                 </Grid>
                                 <Grid item xs={12}>
