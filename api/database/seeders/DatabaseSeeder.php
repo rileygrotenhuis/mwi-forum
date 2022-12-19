@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
 
         foreach ($users as $user) {
             $post = Post::factory()->create([
-                'author' => $user->id
+                'author' => $user->id,
             ]);
 
             $posts[] = $post;
@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             foreach ($users as $user) {
                 $comment = Comment::factory()->create([
                     'author' => $user->id,
-                    'post' => $post->id
+                    'post' => $post->id,
                 ]);
 
                 $comments[] = $comment;
@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
             foreach ($users as $user) {
                 Reply::factory()->create([
                     'author' => $user->id,
-                    'comment' => $comment->id
+                    'comment' => $comment->id,
                 ]);
             }
         }

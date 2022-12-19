@@ -12,7 +12,7 @@ class Post extends Model
 
     /**
      * The attributes that are mass assignable
-     * 
+     *
      * @var array
      */
     protected $fillable = [
@@ -23,7 +23,7 @@ class Post extends Model
 
     /**
      * Returns user resource of the object
-     * 
+     *
      * @return \App\Models\User
      */
     public function getUserAttribute()
@@ -33,7 +33,7 @@ class Post extends Model
 
     /**
      * Returns comment resources of the object
-     * 
+     *
      * @return \App\Models\Comment
      */
     public function getCommentsAttribute()

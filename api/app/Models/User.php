@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     /**
      * Returns all of a users posts
-     * 
+     *
      * @return \App\Models\Post
      */
     public function posts()

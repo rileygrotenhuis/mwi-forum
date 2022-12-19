@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\User;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class PostPolicy
@@ -12,8 +12,8 @@ class PostPolicy
 
     /**
      * Determine if the given post can be updated by the user
-     * 
-     * @param \App\Post $post
+     *
+     * @param  \App\Post  $post
      * @return bool
      */
     public function update(User $user, Post $post)
@@ -23,8 +23,8 @@ class PostPolicy
 
     /**
      * Determine if the given post can be deleted by the user
-     * 
-     * @param \App\Post $post
+     *
+     * @param  \App\Post  $post
      * @return bool
      */
     public function delete(User $user, Post $post)

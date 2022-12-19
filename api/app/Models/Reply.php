@@ -12,7 +12,7 @@ class Reply extends Model
 
     /**
      * The attributes that are mass assignable
-     * 
+     *
      * @var array
      */
     protected $fillable = [
@@ -22,7 +22,7 @@ class Reply extends Model
 
     /**
      * Returns user resource of the object
-     * 
+     *
      * @return \App\Models\User
      */
     public function getUserAttribute()

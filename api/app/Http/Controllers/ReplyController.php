@@ -17,12 +17,12 @@ class ReplyController extends Controller
     public function create(Request $request, Comment $comment)
     {
         $fields = $request->validate([
-            'content' => 'required|string'
+            'content' => 'required|string',
         ]);
 
         $reply = Reply::create([
             'content' => $fields['content'],
-            'comment' => $comment->id
+            'comment' => $comment->id,
         ]);
 
         return response(new ReplyResource($reply), 201);
@@ -38,7 +38,7 @@ class ReplyController extends Controller
     public function update(Request $request, Reply $reply)
     {
         $fields = $request->validate([
-            'content' => 'required|string'
+            'content' => 'required|string',
         ]);
 
         $this->authorize('update', $reply);

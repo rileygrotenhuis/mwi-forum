@@ -12,7 +12,7 @@ class Comment extends Model
 
     /**
      * The attributes that are mass assignable
-     * 
+     *
      * @var array
      */
     protected $fillable = [
@@ -22,7 +22,7 @@ class Comment extends Model
 
     /**
      * Returns user resource of the object
-     * 
+     *
      * @return \App\Models\User
      */
     public function getUserAttribute()
@@ -32,7 +32,7 @@ class Comment extends Model
 
     /**
      * Returns reply resources of the object
-     * 
+     *
      * @return \App\Models\Reply
      */
     public function getRepliesAttribute()

@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\User;
 use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class CommentPolicy
@@ -12,8 +12,8 @@ class CommentPolicy
 
     /**
      * Determine if the given comment can be updated by the user
-     * 
-     * @param \App\Comment $comment
+     *
+     * @param  \App\Comment  $comment
      * @return bool
      */
     public function update(User $user, Comment $comment)
@@ -23,8 +23,8 @@ class CommentPolicy
 
     /**
      * Determine if the given comment can be deleted by the user
-     * 
-     * @param \App\Comment $comment
+     *
+     * @param  \App\Comment  $comment
      * @return bool
      */
     public function delete(User $user, Comment $comment)

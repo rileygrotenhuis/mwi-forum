@@ -17,12 +17,12 @@ class CommentController extends Controller
     public function create(Request $request, Post $post)
     {
         $fields = $request->validate([
-            'content' => 'required|string'
+            'content' => 'required|string',
         ]);
 
         $comment = Comment::create([
             'content' => $fields['content'],
-            'post' => $post->id
+            'post' => $post->id,
         ]);
 
         return response(new CommentResource($comment), 201);
@@ -38,7 +38,7 @@ class CommentController extends Controller
     public function update(Request $request, Comment $comment)
     {
         $fields = $request->validate([
-            'content' => 'required|string'
+            'content' => 'required|string',
         ]);
 
         $this->authorize('update', $comment);

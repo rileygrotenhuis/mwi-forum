@@ -21,7 +21,7 @@ class CommentResource extends JsonResource
             'post' => $this->post,
             'replies' => ReplyResource::collection($this->replies),
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at
+            'updated_at' => $this->updated_at,
         ];
     }
 }

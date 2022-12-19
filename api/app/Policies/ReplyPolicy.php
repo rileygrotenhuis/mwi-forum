@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\User;
 use App\Models\Reply;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ReplyPolicy
@@ -12,8 +12,8 @@ class ReplyPolicy
 
     /**
      * Determine if the given reply can be updated by the user
-     * 
-     * @param \App\Reply $reply
+     *
+     * @param  \App\Reply  $reply
      * @return bool
      */
     public function update(User $user, Reply $reply)
@@ -23,8 +23,8 @@ class ReplyPolicy
 
     /**
      * Determine if the given reply can be deleted by the user
-     * 
-     * @param \App\Reply $reply
+     *
+     * @param  \App\Reply  $reply
      * @return bool
      */
     public function delete(User $user, Reply $reply)

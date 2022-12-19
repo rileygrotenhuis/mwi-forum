@@ -5,21 +5,20 @@ namespace App\Http\Controllers;
 use App\Http\Resources\PostResource;
 use App\Http\Resources\UserResource;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     /**
      * Display the specified resource.
-     * 
-     * @param \App\Models\User $user
+     *
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
     {
         $response = [
             'user' => new UserResource($user),
-            'posts' => PostResource::collection($user->posts())
+            'posts' => PostResource::collection($user->posts()),
         ];
 
         return response($response);
@@ -27,16 +26,16 @@ class UserController extends Controller
 
     /**
      * Display the authenticated user.
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function me()
     {
-        $user = User::where('id', auth()->user()->id)->first();;
+        $user = User::where('id', auth()->user()->id)->first();
 
         $response = [
             'user' => new UserResource($user),
-            'posts' => PostResource::collection($user->posts())
+            'posts' => PostResource::collection($user->posts()),
         ];
 
         return response($response);
