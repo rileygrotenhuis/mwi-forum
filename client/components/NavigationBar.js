@@ -102,7 +102,7 @@ export default function NavigationBar() {
                             >
                                 <MenuItem onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
-                                        Home
+                                        Forum
                                     </Typography>
                                 </MenuItem>
                             </Link>
@@ -192,7 +192,7 @@ export default function NavigationBar() {
                                     display: 'block',
                                 }}
                             >
-                                Home
+                                Forum
                             </Button>
                         </Link>
                         <Link
