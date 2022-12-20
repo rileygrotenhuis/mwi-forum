@@ -1,4 +1,4 @@
-# MWI Serve
+# MWI Forum
 
 This is an example forum that can be used to demonstrate my skillsets and expertise to future clients at MWI.
 
@@ -7,13 +7,13 @@ This is an example forum that can be used to demonstrate my skillsets and expert
 Clone the repository
 
 ```bash
-git clone https://github.com/rileygrotenhuis/mwi-serve-forum.git
+git clone https://github.com/rileygrotenhuis/mwi-forum.git
 ```
 
 Switch to the repo's folder
 
 ```bash
-cd mwi-serve-forum
+cd mwi-forum
 ```
 
 ### Laravel API
