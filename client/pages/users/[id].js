@@ -17,9 +17,9 @@ export async function getServerSideProps(context) {
                 },
             }
         );
-    
+
         const data = response.data;
-    
+
         return {
             props: {
                 user: data,
@@ -29,8 +29,8 @@ export async function getServerSideProps(context) {
 
     return {
         props: {
-            user: {}
-        }
+            user: {},
+        },
     };
 }
 
@@ -45,14 +45,18 @@ export default function Profile({ user }) {
 
     return (
         <AuthenticatedLayout>
-            {Object.keys(user).length > 0 ? <Grid container spacing={3}>
-                <Grid item xs={12}>
-                    <UserInformation data={user.user} />
+            {Object.keys(user).length > 0 ? (
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <UserInformation data={user.user} />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <PostsTable data={user.posts} />
+                    </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                    <PostsTable data={user.posts} />
-                </Grid>
-            </Grid> : <></>}
+            ) : (
+                <></>
+            )}
         </AuthenticatedLayout>
     );
 }

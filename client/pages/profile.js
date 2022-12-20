@@ -26,8 +26,8 @@ export async function getServerSideProps(context) {
 
     return {
         props: {
-            me: {}
-        }
+            me: {},
+        },
     };
 }
 
@@ -42,14 +42,18 @@ export default function Profile({ me }) {
 
     return (
         <AuthenticatedLayout>
-            {Object.keys(me).length > 0 ? <Grid container spacing={3}>
-                <Grid item xs={12}>
-                    <UserInformation data={me.user} />
+            {Object.keys(me).length > 0 ? (
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <UserInformation data={me.user} />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <PostsTable data={me.posts} />
+                    </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                    <PostsTable data={me.posts} />
-                </Grid>
-            </Grid> : <></>}
+            ) : (
+                <></>
+            )}
         </AuthenticatedLayout>
     );
 }

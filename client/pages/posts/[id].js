@@ -17,9 +17,9 @@ export async function getServerSideProps(context) {
                 },
             }
         );
-    
+
         const postData = postResponse.data;
-    
+
         return {
             props: {
                 post: postData,
@@ -29,8 +29,8 @@ export async function getServerSideProps(context) {
 
     return {
         props: {
-            post: {}
-        }
+            post: {},
+        },
     };
 }
 
@@ -45,7 +45,15 @@ export default function PostId({ post }) {
 
     return (
         <AuthenticatedLayout>
-            {Object.keys(post).length > 0 ? <><PostView data={post} /><CreateComment postId={post.id} /><CommentList comments={post.comments} /></> : <></>}
+            {Object.keys(post).length > 0 ? (
+                <>
+                    <PostView data={post} />
+                    <CreateComment postId={post.id} />
+                    <CommentList comments={post.comments} />
+                </>
+            ) : (
+                <></>
+            )}
         </AuthenticatedLayout>
     );
 }

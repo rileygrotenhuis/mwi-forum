@@ -7,11 +7,14 @@ import AuthenticatedLayout from '../layouts/authenticatedLayout';
 
 export async function getServerSideProps(context) {
     if (context.req.cookies['token']) {
-        const postsResponse = await axios.get('http://127.0.0.1:8000/api/posts', {
-            headers: {
-                Authorization: `Bearer ${context.req.cookies['token']}`,
-            },
-        });
+        const postsResponse = await axios.get(
+            'http://127.0.0.1:8000/api/posts',
+            {
+                headers: {
+                    Authorization: `Bearer ${context.req.cookies['token']}`,
+                },
+            }
+        );
 
         const postsData = postsResponse.data;
 
@@ -24,8 +27,8 @@ export async function getServerSideProps(context) {
 
     return {
         props: {
-            posts: []
-        }
+            posts: [],
+        },
     };
 }
 

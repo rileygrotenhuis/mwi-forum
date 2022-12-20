@@ -38,10 +38,10 @@ const theme = createTheme({
                             background: 'black',
                             color: 'white',
                             border: '1px solid white',
-                        }
-                    }
-                }
-            ]
+                        },
+                    },
+                },
+            ],
         },
         MuiTableContainer: {
             defaultProps: {
