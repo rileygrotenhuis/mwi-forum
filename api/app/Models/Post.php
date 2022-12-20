@@ -38,6 +38,6 @@ class Post extends Model
      */
     public function getCommentsAttribute()
     {
-        return Comment::where('post', $this->id)->get();
+        return Comment::where('post', $this->id)->orderBy('created_at', 'desc')->get();
     }
 }

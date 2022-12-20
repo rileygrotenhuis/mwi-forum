@@ -37,6 +37,6 @@ class Comment extends Model
      */
     public function getRepliesAttribute()
     {
-        return Reply::where('comment', $this->id)->get();
+        return Reply::where('comment', $this->id)->orderBy('created_at', 'desc')->get();
     }
 }
