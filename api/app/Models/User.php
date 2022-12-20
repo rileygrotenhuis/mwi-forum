@@ -49,6 +49,6 @@ class User extends Authenticatable
      */
     public function posts()
     {
-        return Post::where('author', $this->id)->get();
+        return Post::where('author', $this->id)->orderBy('created_at', 'desc')->get();
     }
 }
