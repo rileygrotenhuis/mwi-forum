@@ -1,6 +1,6 @@
 # MWI Forum
 
-Example forum that can be used to demonstrate my skillsets and expertise to future clients at MWI.
+Example forum to demonstrate for future clients at MWI.
 
 ## Setup
 
